@@ -1,9 +1,12 @@
-var crypto = require('crypto');
+const crypto = require('crypto');
 
-var password = 'monkey';
+const password = 'monkey';
+
+const aliceSalt = 1;
+const bobSalt = 2;
 
 // we will use another hash other SHA-256 during the course, this is just for demo purposes
-var hash = crypto.createHash('sha256').update(password).digest('hex');
+const hash = crypto.createHash('sha256').update(password + bobSalt).digest('hex');
 
 console.log("The result of hashing " + password + " is:\n\n" + hash + "\n\n");
 

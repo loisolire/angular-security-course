@@ -3,7 +3,7 @@ import {Application} from 'express';
 import * as fs from 'fs';
 import * as https from 'https';
 import {readAllLessons} from './read-all-lessons.route';
-import {createUser} from './create-user.route';
+import {createUserRoute} from './create-user.route';
 
 const bodyParser = require('body-parser');
 
@@ -25,7 +25,7 @@ app.route('/api/lessons')
   .get(readAllLessons);
 
 app.route('/api/signup')
-  .post(createUser);
+  .post(createUserRoute);
 
 
 if (options.secure) {

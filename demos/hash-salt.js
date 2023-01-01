@@ -1,7 +1,7 @@
-var crypto = require('crypto');
+const crypto = require('crypto');
 
 
-var password = "monkey";
+const password = "monkey";
 
 
 crypto.randomBytes(256, function (err, salt) {
