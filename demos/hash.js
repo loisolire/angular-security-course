@@ -1,5 +1,3 @@
-
-
 var crypto = require('crypto');
 
 var password = 'monkey';
