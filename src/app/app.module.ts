@@ -13,6 +13,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 
 
 import {AuthService} from './services/auth.service';
+import {CommonModule} from '@angular/common';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {AuthService} from './services/auth.service';
     SignupComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routesConfig),

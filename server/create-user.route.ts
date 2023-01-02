@@ -3,6 +3,7 @@ import {db} from './database';
 import {USERS} from './database-data';
 import * as argon2 from 'argon2';
 import {validatePassword} from './password-validation';
+import {log} from 'util';
 
 
 export async function createUserRoute(req: Request, res: Response) {

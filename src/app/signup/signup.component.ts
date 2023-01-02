@@ -10,6 +10,7 @@ import {AuthService} from '../services/auth.service';
 export class SignupComponent implements OnInit {
 
   form: FormGroup;
+  errors: string[] = [];
 
   constructor(private fb: FormBuilder, private authService: AuthService) {
 
@@ -31,11 +32,12 @@ export class SignupComponent implements OnInit {
     const val = this.form.value;
 
     if (val.email && val.password && val.password === val.confirm) {
+      this.errors = [];
 
       this.authService.signUp(val.email, val.password)
         .subscribe(
           (user) => console.log('User created successfully : ', JSON.stringify(user)),
-          console.error
+          response => this.errors = response.error.errors
         );
 
     }
