@@ -1,0 +1,26 @@
+import {Session} from './session';
+import {User} from '../src/app/model/user';
+
+class SessionStore {
+  private sessions: { [key: string]: Session } = {};
+
+  createSession(sessionId: string, user: User) {
+    this.sessions[sessionId] = new Session(sessionId, user);
+  }
+
+  findSessionByUserId(sessionId: string) {
+    const session = this.sessions[sessionId];
+    return this.isValidSession(sessionId) ? <User>session.user : undefined;
+  }
+
+  isValidSession(sessionId: any) {
+    const session = this.sessions[sessionId];
+    return session && session.isValid();
+  }
+
+  destroySession(sessionId: string) {
+    delete this.sessions[sessionId];
+  }
+}
+
+export const sessionStore = new SessionStore();

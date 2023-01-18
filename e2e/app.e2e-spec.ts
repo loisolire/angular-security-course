@@ -1,4 +1,4 @@
-import { AngularSecurityCoursePage } from './app.po';
+import {AngularSecurityCoursePage} from './app.po';
 
 describe('angular-security-course App', () => {
   let page: AngularSecurityCoursePage;

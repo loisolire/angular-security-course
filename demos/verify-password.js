@@ -1,7 +1,3 @@
-
-
-
-
 var crypto = require('crypto');
 
 var storedHash = '000c285457fc971f862a79b786476c78812c8897063c6fa9c045f579a3b2d63f';

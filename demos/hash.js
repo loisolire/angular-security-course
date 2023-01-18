@@ -1,5 +1,3 @@
-
-
 var crypto = require('crypto');
 
 var password = '123456789';
@@ -7,7 +5,6 @@ var password = '123456789';
 var aliceSalt = 1;
 
 var bobSalt = 2;
-
 
 
 // we will use another hash other SHA-256 during the course, this is just for demo purposes
