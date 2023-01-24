@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../model/user';
+import {Router} from '@angular/router';
 
 export const ANONYMOUS_USER: User = {
   id: undefined,
@@ -36,8 +37,18 @@ export class AuthService {
       }));
   }
 
+  login(email: string, password: string) {
+    return this.http.post<User>('/api/login', {email, password}).pipe(
+      tap(user => {
+        this.subject.next(user);
+      }));
+  }
+
   logout() {
-    return this.http.post('/api/logout', {message: 'Logout !'});
+    return this.http.post('/api/logout', {message: 'Logout !'})
+      .pipe(tap(() => {
+        this.subject.next(ANONYMOUS_USER);
+      }));
   }
 
 }

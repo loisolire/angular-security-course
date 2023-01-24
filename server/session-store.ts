@@ -8,7 +8,7 @@ class SessionStore {
     this.sessions[sessionId] = new Session(sessionId, user);
   }
 
-  findSessionByUserId(sessionId: string) {
+  findUserBySessionId(sessionId: string) {
     const session = this.sessions[sessionId];
     return this.isValidSession(sessionId) ? <User>session.user : undefined;
   }
