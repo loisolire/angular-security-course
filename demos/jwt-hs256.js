@@ -12,7 +12,7 @@ var payload = {
 
 // create a JWT
 var newToken = jwt.sign(payload, secretKey, {
-    algorithm: 'HS256'
+    algorithm: 'HS256',
 });
 
 console.log("JWT created:", newToken);
